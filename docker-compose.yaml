@@ -24,6 +24,7 @@ services:
       - "3000"
     depends_on:
       - backend
+      - db
 
 volumes:
   data:
