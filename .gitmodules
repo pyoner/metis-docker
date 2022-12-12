@@ -1,0 +1,9 @@
+[submodule "metis-gui"]
+	path = metis-gui
+	url = https://github.com/basf/metis-gui.git
+[submodule "metis-backend"]
+	path = metis-backend
+	url = https://github.com/basf/metis-backend.git
+[submodule "metis-bff"]
+	path = metis-bff
+	url = https://github.com/basf/metis-bff.git
