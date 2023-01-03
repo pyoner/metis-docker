@@ -1,25 +1,28 @@
 services:
   db:
-    image: postgres:14.6
+    image: postgres:14.6-alpine
     volumes:
       - data:/data/db
   backend:
-    image: python:3.11
+    image: python:3.11-alpine
     ports:
       - "7050"
     depends_on:
       - db
   gui:
-    build: ./gui.dockerfile
+    build:
+      context: ./metis-gui
+      dockerfile: ../gui.dockerfile
     ports:
-      - "5000"
+      - 5000:5000
     depends_on:
       - bff
   bff:
-    image: node:18
-    build: ./bff.dockerfile
+    build:
+      context: ./metis-bff
+      dockerfile: ../bff.dockerfile
     ports:
-      - "3000"
+      - 3000:3000
     depends_on:
       - backend
       - db

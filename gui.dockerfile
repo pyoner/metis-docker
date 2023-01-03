@@ -1,8 +1,9 @@
-FROM node:18
+FROM node:18-alpine
 
-COPY ./metis-gui /app
 WORKDIR /app
+COPY . .
 
 RUN npm ci
 
-CMD npm run dev
+ENTRYPOINT npm run dev
+EXPOSE 5000

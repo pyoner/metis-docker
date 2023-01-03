@@ -1,10 +1,10 @@
-FROM node:18
+FROM node:18-alpine
 
-COPY ./metis-bff /app
 WORKDIR /app
-
+COPY . .
 COPY env.ini.sample env.ini
 
 RUN npm ci
 
-CMD npm run dev
+ENTRYPOINT npm run dev
+EXPOSE 3000
